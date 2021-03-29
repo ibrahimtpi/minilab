@@ -30,8 +30,8 @@ To use this template, your computer needs:
 
 ### Installing:
 
-- Clone this repo: `git clone https://github.com/johndavemanuel/bootstrap-gulp-starter-template.git`
-- Navigate into the repo directory: `cd bootstrap-gulp-starter-template`
+- Clone this repo: git clone https://github.com/ibrahimtpi/minilab.git
+- Navigate into the repo directory: cd minilab
 - Install all node packages: `npm install`
 - Run `gulp dev`
 - Your site is now viewable at this URL: http://localhost:3000
