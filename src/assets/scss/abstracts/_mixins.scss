@@ -1,0 +1,153 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+// ASPECT RATIO
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > img,
+    > video,
+    > figure,
+    > .ratio-content {
+        position: absolute;
+        top: 0;
+        left: -9999px;
+        right: -9999px;
+        bottom: 0;
+        min-height: 100%;
+        min-width: 100%;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        object-fit: cover;
+    }
+
+    > iframe,
+    > .ratio-iframe {
+        position: absolute;
+        top: 0;
+        left: -9999px;
+        right: -9999px;
+        bottom: 0;
+        min-height: 100%;
+        min-width: 100%;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    > iframe {
+        min-height: 200%;
+        min-width: 200%;
+    }
+}
+
+@mixin media-min($min) {
+    @media screen and (min-width: #{ $min }) {
+        @content;
+    }
+}
+
+@mixin media-between($min, $max) {
+    @media screen and (min-width: #{$min}) and (max-width: #{$max}) {
+        @content;
+    }
+}
+
+@mixin media-max($max) {
+    @media screen and (max-width: #{$max}) {
+        @content;
+    }
+}
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+        & {
+            font-size: $min-font-size;
+
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(
+                    #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+                        ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+                );
+            }
+
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
+
+@mixin bg-grad {
+    background-image: linear-gradient(150deg, $primary 0%, $secondary 100%);
+}
+
+@mixin bg-grad-hover {
+    background-image: linear-gradient(-150deg, $primary 0%, $secondary 100%);
+}
+
+@mixin text-grad {
+    background: -webkit-linear-gradient($primary, $secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin form-input {
+    background-color: rgb(255, 255, 255);
+    border-color: transparent;
+    box-shadow: 5px 8.66px 12.74px 0.26px rgba(113, 113, 113, 0.055);
+    font-size: 19px;
+    max-width: 702px;
+    height: 81px;
+    padding: 0 40px;
+    @include media-breakpoint-up(lg) {
+        padding: 0 85px;
+        margin-left: 70px;
+    }
+
+    &::placeholder {
+        @include text-grad;
+    } //&::placeholder
+
+    &:focus {
+        border-color: $primary;
+    } //&:focus
+}
+
+@mixin form-submit {
+    @include bg-grad;
+    font-size: 19px;
+    width: 200px;
+    height: 81px;
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    @include media-breakpoint-up(lg) {
+        right: 30px;
+    }
+
+    &:hover {
+        @include bg-grad-hover;
+    }
+}

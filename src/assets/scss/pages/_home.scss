@@ -1,0 +1,235 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.banner {
+    background: url('../img/banner-bg.png') no-repeat;
+    background-position: 100% 0;
+    background-size: cover;
+    padding: 170px 0 130px;
+    // padding: 268px 0 150px;
+    @include media-breakpoint-up(lg) {
+        padding: 345px 0 130px;
+    }
+    margin-top: -12px;
+
+    .site-title {
+        strong {
+            color: $gray-900;
+        } //strong
+    } //.site-title
+
+    .site-desc {
+        font-size: 29px;
+        font-weight: $font-weight-light;
+        line-height: 45px;
+        @include media-breakpoint-up(lg) {
+            padding-right: 150px;
+        }
+    } //.site-desc
+} //.banner
+
+p {
+    // @include text-grad;
+}
+
+
+section {
+    .section-title {
+        color: $black;
+        font-size: 42px;
+        font-weight: $font-weight-bold;
+        line-height: 60px;
+        @include media-breakpoint-up(lg) {
+            font-size: 75px;
+            line-height: 110px;
+        }
+    } //.section-title
+
+    &.services-wrap {
+        background: url('../img/section1.png') no-repeat;
+        background-position: left center;
+        background-size: contain;
+        @include media-breakpoint-up(xl) {
+            padding: 150px 0 95px;
+        }
+
+        .section-title {
+            @include media-breakpoint-up(lg) {
+                font-size: 64px;
+                line-height: 95px;
+            }
+        } //.section-title
+
+        .service-box {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 9.5px 16.454px 103px 0px rgba(180, 180, 180, 0.098);
+            font-size: 25px;
+            line-height: 40px;
+            max-width: 376px;
+            height: 373px;
+            @include media-breakpoint-up(md) {
+                height: auto;
+            }
+            @include media-breakpoint-up(xxl) {
+                height: 373px;
+            }
+            transition: $transition;
+
+            &:hover {
+                @include bg-grad;
+                color: $white;
+                font-size: 23px;
+                line-height: 36px;
+
+                .display-on {
+                    display: none;
+                } //.display-on
+
+                .service-title {
+                    color: $white;
+                } //.service-title
+
+            } //&:hover
+
+            .service-title {
+                color: $black;
+                font-size: 19px;
+                line-height: 61px;
+                transition: $transition;
+                &:hover {
+                    font-size: 18px;
+                    line-height: 55px;
+                } //&:hover
+            } //.service-title
+        } //.service-box
+          
+    } //&.services-wrap
+
+    &.how-work-wrap {
+        background: url('../img/section2.png') no-repeat;
+        background-position: right bottom;
+        background-size: cover;
+        @include media-breakpoint-up(xl) {
+            padding: 215px 0 275px;
+        }
+
+        .how-work-video {
+            &:hover {
+                opacity: 0.85;
+            } //&:hover
+        } //.how-work-video
+
+        .video-btn {
+            @include bg-grad;
+            border-radius: 50%;
+            color: $white;
+            font-size: 65px;
+            width: 145px;
+            height: 145px;
+            @include media-breakpoint-up(xl) {
+                font-size: 75px;
+                width: 188px;
+                height: 188px;
+            }
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            &:hover {
+                opacity: 0.9;
+            } //&:hover
+        } //.video-btn
+
+        .modal-dialog {
+            max-width: 800px;
+            margin: 30px auto;
+        } //.modal-dialog
+
+        .modal-body {
+            position:relative;
+            padding:0px;
+        } //.modal-body
+
+        .close {
+            position:absolute;
+            right:-30px;
+            top:0;
+            z-index:999;
+            font-size:2rem;
+            font-weight: normal;
+            color:#fff;
+            opacity:1;
+        } //.close
+
+    } //&.how-work-wrap
+
+    &.testimonial-wrap {
+        background: url('../img/section3.png') no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+        @include media-breakpoint-up(xl) {
+            padding: 0 0 275px;
+        }
+
+        .client-testimonials {
+            @include media-breakpoint-up(xl) {
+                margin-left: -25px;
+            }
+
+            .slick-list {
+                padding: 110px 15px;
+                @include media-breakpoint-up(sm) {
+                    padding-right: 140px;
+                }
+                @include media-breakpoint-up(xl) {
+                    padding: 70px 130px 70px 0 !important;
+                }
+            } //.slick-list
+
+            .client-details {
+                font-size: 25px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 9.5px 16.454px 103px 0px rgba(180, 180, 180, 0.098);
+                width: 376px;
+                @include media-breakpoint-up(xxxxl) {
+                    height: 373px;
+                }
+            } //.client-details
+
+            .client-name {
+                @include text-grad;
+            } //.client-name
+              
+        } //.client-testimonials
+
+        .testimonial-desc {
+            @include media-breakpoint-up(xl) {
+                margin-top: -388px;
+            }
+        } //.testimonial-desc
+    } //&.testimonial-wrap
+
+    &.newsletter-wrap {
+        background: url('../img/section4.png') no-repeat;
+        background-position: right bottom;
+        background-size: cover;
+        @include media-breakpoint-up(md) {
+            padding: 0 0 150px;
+        }
+        @include media-breakpoint-up(lg) {
+            background-size: contain;
+            padding: 0 0 275px;
+            margin-top: -60px;
+        }
+
+        #newsletter {
+            @include form-input;
+        } //#newsletter
+
+        button {
+            @include form-submit;
+        } //button
+    } //&.newsletter-wrap
+} //section

@@ -1,0 +1,132 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+    box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+    color: $red;
+    text-decoration: none;
+}
+
+
+.big {
+    padding: 50px 0;
+    @include media-breakpoint-up(lg) {
+        padding: 150px 0;
+    }
+} //.big
+
+
+
+// Gradient Background
+.bg-grad {
+    @include bg-grad;
+} //.bg-grad
+
+
+
+// Row expand
+.row-fluid-md {
+    @include media-breakpoint-up(xxxl) {
+        margin-left: -75px;
+        margin-right: -75px;
+    }
+} //.row-fluid-lg
+
+.row-fluid-md2 {
+    @include media-breakpoint-up(xxxl) {
+        margin-left: -95px;
+        margin-right: -95px;
+    }
+} //.row-fluid-lg
+
+.row-fluid-lg {
+    @include media-breakpoint-up(xxxl) {
+        margin-left: -114px;
+        margin-right: -114px;
+    }
+} //.row-fluid-lg
+
+.row-fluid-xl {
+    @include media-breakpoint-up(xxxl) {    
+        margin-left: -165px;
+        margin-right: -165px;    
+    }
+} //.row-fluid-xl
+
+
+
+// Paddings
+.pt-80 {
+    padding-top: 80px;
+} //.pt-80
+
+.pb-160 {
+    padding-bottom: 160px;
+} //.pb-160
+
+.pl-90 {
+    @include media-breakpoint-up(xl) {
+        padding-left: 90px;
+    }
+} //.pl-90
+
+
+
+// Margins
+.mb-45 {
+    margin-bottom: 45px;
+} //.mb-45
+
+.mb-70 {
+    margin-bottom: 70px;
+} //.mb-70
+
+
+
+// Rounded Corners
+.rounded-23 {
+    border-radius: 23px;
+} //.rounded-23
+
+.rounded-35 {
+    border-radius: 35px;
+} //.rounded-35
+
+.rounded-40 {
+    border-radius: 40px !important;
+} //.rounded-40
+
+
+
+// Letter spacing
+.ls-20 {
+    letter-spacing: -.20px;
+} //.ls-20
+
+.ls-40 {
+    letter-spacing: -.40px;
+} //.ls-40
+
+

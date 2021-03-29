@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn-primary {
+    // background-image: linear-gradient( -166deg, $primary 0%, $secondary 100%);
+    background-image: linear-gradient(150deg, $secondary 0%, $primary 100%);
+    border: 0;
+    border-radius: 0;
+    color: $white;
+    font-size: 22px;
+    line-height: 61px;
+    letter-spacing: -.40px;
+    padding: 0;
+    width: 245px;
+    height: 61px;
+
+    &:hover {
+        background-image: linear-gradient(150deg, $primary 0%, $secondary 100%);
+    } //&:hover
+} //.btn-primary
